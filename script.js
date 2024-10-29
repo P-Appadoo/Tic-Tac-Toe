@@ -104,6 +104,30 @@ function checkWin(cell, val) {
   }
 }
 
+function islandChecker(a, b, c) {
+  if (b < 0 || b > a.length || c < 0 || c > a[b].length || a[b][c] === 1) {
+    return;
+  }
+  a[b][c] === 0;
+  islandChecker(a, b - 1, c);
+  islandChecker(a, b + 1, c);
+  islandChecker(a, b, c - 1);
+  islandChecker(a, b, c + 1);
+}
+
+function foo(x) {
+  let count = 0;
+  for (const i in x) {
+    if (j in x[i]) {
+      if (x[i][j] === 1) {
+        count++;
+        islandChecker(x, i, j);
+      }
+    }
+  }
+  return count;
+}
+
 function updateAndChangeTurn(num) {
   if (currentGrid[num].value === "" && !win) {
     if (player1) {
